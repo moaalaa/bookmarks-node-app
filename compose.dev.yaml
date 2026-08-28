@@ -1,0 +1,25 @@
+services:
+
+  web:
+    build:
+      context: .
+      target: development
+    image: bookmark-node-app:latest
+    container_name: bookmark-node-app-dev
+    ports:
+      - 3000:3000
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
+    restart: unless-stopped
+    develop:
+      watch:
+        - path: ./
+          target: ./app
+          action: sync
+        - path: Dockerfile
+          action: rebuild
+        - path: package.json
+          action: rebuild
+    
+    

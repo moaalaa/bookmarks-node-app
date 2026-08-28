@@ -1,0 +1,14 @@
+services:
+
+  web:
+    build:
+      context: .
+      target: production
+    image: bookmark-node-app:latest
+    container_name: bookmark-node-app-prod
+    ports:
+      - 3000:3000
+    environment:
+      - PORT=3000
+      - NODE_ENV=production  
+    restart: unless-stopped  
