@@ -21,7 +21,7 @@ mongoose
 
 app.get('/', (req, res) => {
     res.json({
-        message: 'Hello, World`!',
+        message: 'Hello, World!',
         source: os.hostname(),
     });
 });
